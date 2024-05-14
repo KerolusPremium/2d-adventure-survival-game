@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://bhvlmcpa1ffjn"]
+
+[ext_resource type="Texture2D" uid="uid://dqe3fs7ta54r5" path="res://assets/environment/survivalgame-appletree.png" id="1_63jeb"]
+[ext_resource type="Script" path="res://scripts/apple_tree.gd" id="1_adx86"]
+[ext_resource type="Resource" uid="uid://cc1vhqmby3byb" path="res://inventory/items/apple.tres" id="2_vt0fv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifa32"]
+atlas = ExtResource("1_63jeb")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trtxj"]
+atlas = ExtResource("1_63jeb")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xfxv"]
+atlas = ExtResource("1_63jeb")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uvyil"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifa32")
+}],
+"loop": true,
+"name": &"apples",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trtxj")
+}],
+"loop": true,
+"name": &"growth",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xfxv")
+}],
+"loop": true,
+"name": &"noApples",
+"speed": 0.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f1l51"]
+radius = 48.3839
+
+[node name="appleTree" type="Node2D"]
+script = ExtResource("1_adx86")
+item = ExtResource("2_vt0fv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uvyil")
+animation = &"growth"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_f1l51")
+
+[node name="appleGrowth" type="Timer" parent="."]
+wait_time = 60.0
+
+[node name="treeGrowth" type="Timer" parent="."]
+wait_time = 180.0
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="appleGrowth" to="." method="_on_apple_growth_timeout"]
+[connection signal="timeout" from="treeGrowth" to="." method="_on_tree_growth_timeout"]
