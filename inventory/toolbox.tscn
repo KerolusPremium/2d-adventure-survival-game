@@ -33,29 +33,29 @@ offset_right = 180.0
 offset_bottom = 22.0
 columns = 9
 
-[node name="slot" parent="NinePatchRect/GridContainer" instance=ExtResource("2_w2w7j")]
+[node name="1" parent="NinePatchRect/GridContainer" instance=ExtResource("2_w2w7j")]
 layout_mode = 2
 
-[node name="slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("2_w2w7j")]
+[node name="2" parent="NinePatchRect/GridContainer" instance=ExtResource("2_w2w7j")]
 layout_mode = 2
 
-[node name="slot3" parent="NinePatchRect/GridContainer" instance=ExtResource("2_w2w7j")]
+[node name="3" parent="NinePatchRect/GridContainer" instance=ExtResource("2_w2w7j")]
 layout_mode = 2
 
-[node name="slot4" parent="NinePatchRect/GridContainer" instance=ExtResource("2_w2w7j")]
+[node name="4" parent="NinePatchRect/GridContainer" instance=ExtResource("2_w2w7j")]
 layout_mode = 2
 
-[node name="slot5" parent="NinePatchRect/GridContainer" instance=ExtResource("2_w2w7j")]
+[node name="5" parent="NinePatchRect/GridContainer" instance=ExtResource("2_w2w7j")]
 layout_mode = 2
 
-[node name="slot6" parent="NinePatchRect/GridContainer" instance=ExtResource("2_w2w7j")]
+[node name="6" parent="NinePatchRect/GridContainer" instance=ExtResource("2_w2w7j")]
 layout_mode = 2
 
-[node name="slot7" parent="NinePatchRect/GridContainer" instance=ExtResource("2_w2w7j")]
+[node name="7" parent="NinePatchRect/GridContainer" instance=ExtResource("2_w2w7j")]
 layout_mode = 2
 
-[node name="slot8" parent="NinePatchRect/GridContainer" instance=ExtResource("2_w2w7j")]
+[node name="8" parent="NinePatchRect/GridContainer" instance=ExtResource("2_w2w7j")]
 layout_mode = 2
 
-[node name="slot9" parent="NinePatchRect/GridContainer" instance=ExtResource("2_w2w7j")]
+[node name="9" parent="NinePatchRect/GridContainer" instance=ExtResource("2_w2w7j")]
 layout_mode = 2

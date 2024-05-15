@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="block" load_steps=3 format=3 uid="uid://kc5v2ui4u03m"]
+
+[ext_resource type="Script" path="res://inventory/block.gd" id="1_qh2xm"]
+[ext_resource type="Texture2D" uid="uid://b4ms15rsxlx1a" path="res://assets/environment/survivalgame-appletreesapling.png" id="2_hekyd"]
+
+[resource]
+script = ExtResource("1_qh2xm")
+name = "Apple Tree Sapling"
+texture = ExtResource("2_hekyd")
+canBeDestroy = true
+health = 3
+node = "scenes/spawnable ores items/apple_tree.tscn"

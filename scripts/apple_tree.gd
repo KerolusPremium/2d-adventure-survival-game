@@ -13,9 +13,11 @@ var isPlayerInArea = false
 var health := 3
 
 var apple = preload("res://scenes/droppedItems/apple.tscn")
+var sapling = preload("res://scenes/droppedItems/appleTreeSapling.tscn")
 var player = null
 
 @export var item: invItem
+@export var saplingItem: invItem
 
 func setState(newState: int):
 	if newState >= 3 or newState < 0:
@@ -44,6 +46,7 @@ func _process(delta):
 				health -= 2
 				$AnimationPlayer.play("damage")
 				if health <= 0:
+					dropSapling()
 					queue_free()
 	if state == 2:
 		animated_sprite_2d.play("apples")
@@ -89,3 +92,9 @@ func dropApple():
 	player.collect(item)
 	await get_tree().create_timer(3).timeout
 	apple_growth.start()
+
+func dropSapling():
+	var saplingInstance = sapling.instantiate()
+	saplingInstance.global_position = $Marker2D.global_position
+	get_parent().add_child(saplingInstance)
+	player.collect(saplingItem)

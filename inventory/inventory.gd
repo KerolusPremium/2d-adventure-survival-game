@@ -12,7 +12,7 @@ func insert(item:invItem):
 		itemSlots[0].amount += 1
 	else:
 		var emptySlots = slots.filter(func(slot): return slot.item == null)
-		if !emptySlots.is_empty() and item.maxCount <= itemSlots[0].amount:
+		if !emptySlots.is_empty():
 			emptySlots[0].item = item
 			emptySlots[0].amount = 1
 	update.emit()

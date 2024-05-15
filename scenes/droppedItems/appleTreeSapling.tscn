@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cli3rck7r2jng"]
+
+[ext_resource type="Script" path="res://scripts/dropped items/appleTreeSapling.gd" id="1_up5t1"]
+[ext_resource type="Texture2D" uid="uid://b4ms15rsxlx1a" path="res://assets/environment/survivalgame-appletreesapling.png" id="2_nv1hb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2jji"]
+atlas = ExtResource("2_nv1hb")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_01g6a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2jji")
+}],
+"loop": true,
+"name": &"apple",
+"speed": 0.0
+}]
+
+[node name="appleTreeSapling" type="StaticBody2D"]
+script = ExtResource("1_up5t1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_01g6a")
+animation = &"apple"

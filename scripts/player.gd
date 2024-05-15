@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 100
+@export var damage = 2
 
 @export var inv: Inv
 
