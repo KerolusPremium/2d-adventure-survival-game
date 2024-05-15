@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://q1mvttsdbdf1" path="res://inventory/toolbox.tscn" id="3_q63ur"]
 [ext_resource type="Texture2D" uid="uid://gk2181f87vnh" path="res://assets/environment/survivalgame-trees.png" id="4_op26q"]
 [ext_resource type="Texture2D" uid="uid://dlnl5pv63by1j" path="res://assets/environment/survivalgame-terrian-water.png" id="5_mbjf1"]
-[ext_resource type="PackedScene" uid="uid://bhvlmcpa1ffjn" path="res://scenes/apple_tree.tscn" id="6_e887x"]
+[ext_resource type="PackedScene" uid="uid://bhvlmcpa1ffjn" path="res://scenes/spawnable ores items/apple_tree.tscn" id="6_e887x"]
 [ext_resource type="PackedScene" uid="uid://cxgxo1btfia6p" path="res://scenes/droppedItems/stick.tscn" id="8_ujiem"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wwhss"]

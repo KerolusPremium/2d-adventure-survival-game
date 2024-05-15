@@ -10,6 +10,7 @@ extends Node2D
 # state 2 = tree with apples
 
 var isPlayerInArea = false
+var health := 3
 
 var apple = preload("res://scenes/droppedItems/apple.tscn")
 var player = null
@@ -38,13 +39,23 @@ func _process(delta):
 		animated_sprite_2d.play("growth")
 	if state == 1:
 		animated_sprite_2d.play("noApples")
+		if isPlayerInArea:
+			if Input.is_action_just_pressed("attack"):
+				health -= 2
+				$AnimationPlayer.play("damage")
+				if health <= 0:
+					queue_free()
 	if state == 2:
 		animated_sprite_2d.play("apples")
 		if isPlayerInArea:
-			if Input.is_action_just_pressed("collect"):
-				state = 1
-				apple_growth.start()
-				dropApple()
+			if Input.is_action_just_pressed("attack"):
+				health -= 2
+				$AnimationPlayer.play("damage")
+				if health <= 0:
+					state = 1
+					apple_growth.start()
+					dropApple()
+					health = 3
 	
 
 
