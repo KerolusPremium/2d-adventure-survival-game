@@ -11,3 +11,4 @@ texture = ExtResource("3_inss3")
 maxCount = 64
 placeable = true
 placeNode = ExtResource("1_8hdtw")
+placeGroup = "appleTree"

@@ -9,4 +9,5 @@ name = "Apple Tree Sapling"
 texture = ExtResource("2_hekyd")
 canBeDestroy = true
 health = 3
+dropItem = true
 node = "scenes/spawnable ores items/apple_tree.tscn"

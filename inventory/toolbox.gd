@@ -33,9 +33,10 @@ func _process(delta):
 			var placeNode = load("res://" + placeNodePath)
 			var placeNodeIns = placeNode.instantiate()
 			placeNodeIns.global_position = mousePos
-			get_parent().get_parent().get_parent().add_child(placeNodeIns)
+			if inv.slots[currentSlot].item.placeGroup != "":
+				placeNodeIns.add_to_group(inv.slots[currentSlot].item.placeGroup)
+			get_parent().get_parent().get_parent().get_child(2).add_child(placeNodeIns)
 			inv.slots[currentSlot].amount -= 1
-
 func updateSlotTexture():
 	var i = 0
 	for slot in slots:

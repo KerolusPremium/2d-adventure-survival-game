@@ -19,18 +19,30 @@ var player = null
 @export var item: invItem
 @export var saplingItem: invItem
 
+func destroy():
+	if isPlayerInArea:
+			if Input.is_action_just_pressed("attack"):
+				health -= 2
+				$AnimationPlayer.play("damage")
+				if health <= 0:
+					dropSapling()
+					queue_free()
+
 func setState(newState: int):
 	if newState >= 3 or newState < 0:
 		return
 	state = newState
 	if state == 0:
+		var tree_growth = $treeGrowth
 		tree_growth.start()
 	if state == 1:
+		var apple_growth = $appleGrowth
 		apple_growth.start()
 	pass
 
 func _ready():
 	if state == 0:
+		var tree_growth = $treeGrowth
 		tree_growth.start()
 	if state == 1:
 		apple_growth.start()
@@ -39,15 +51,10 @@ func _ready():
 func _process(delta):
 	if state == 0:
 		animated_sprite_2d.play("growth")
+		destroy()
 	if state == 1:
 		animated_sprite_2d.play("noApples")
-		if isPlayerInArea:
-			if Input.is_action_just_pressed("attack"):
-				health -= 2
-				$AnimationPlayer.play("damage")
-				if health <= 0:
-					dropSapling()
-					queue_free()
+		destroy()
 	if state == 2:
 		animated_sprite_2d.play("apples")
 		if isPlayerInArea:

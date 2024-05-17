@@ -13,13 +13,16 @@ var lastDirY: float
 var mouseLocationFromPlayer = null
 var isAttack := false
 
+@onready var animated_sprite_2d = $AnimatedSprite2D
+
 func  _ready():
 	hideText()
+	self.position.x = loadPos().x
+	self.position.y = loadPos().y
 
 func _physics_process(delta):
 	if !isAttack:
 		mouseLocationFromPlayer = get_global_mouse_position() - self.position
-		showText(str(mouseLocationFromPlayer))
 	
 	var direction = Input.get_vector("left", "right", "up", "down")
 	
@@ -30,6 +33,8 @@ func _physics_process(delta):
 	velocity = direction * speed
 	#move_and_collide(velocity)
 	move_and_slide()
+	if Input.is_action_pressed("up") or Input.is_action_pressed("down") or Input.is_action_pressed("left") or Input.is_action_pressed("right"):   
+		save(self.position.x, self.position.y)
 	
 	var mousePos = get_global_mouse_position()
 	$Marker2D.look_at(mousePos)
@@ -39,8 +44,9 @@ func _physics_process(delta):
 		playAnimation(direction)
 		await get_tree().create_timer(0.5).timeout
 		isAttack = false
-	
-	playAnimation(direction)
+	else:
+		playAnimation(direction)
+	showText(str(self.position))
 
 func playAnimation(dir):
 	if isAttack == true: #attack animation
@@ -114,7 +120,6 @@ func playAnimation(dir):
 				lastDirX = -0.7
 				lastDirY = -0.7
 			
-			showText(str(lastDirX) + " : " + str(lastDirY))
 			
 	
 
@@ -133,3 +138,14 @@ func hideText():
 	var Text = $camera/Label
 	Text.text = ""
 	Text.visible = false
+
+func save(x, y):
+	Save.playerPos = {
+		"x": x,
+		"y": y,
+	}
+	Save.saveGame()
+
+func loadPos():
+	var data = Save.loadGame()
+	return data.playerPos

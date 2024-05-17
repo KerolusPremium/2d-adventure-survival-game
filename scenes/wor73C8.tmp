@@ -896,7 +896,7 @@ layer_2/tile_data = PackedInt32Array(65542, 524290, 0, 917486, 2, 0, 983022, 2, 
 
 [node name="place" type="Node" parent="."]
 
-[node name="appleTree" parent="place" instance=ExtResource("6_e887x")]
+[node name="appleTree" parent="place" groups=["appleTree"] instance=ExtResource("6_e887x")]
 position = Vector2(4, 43)
 
 [node name="stick" parent="place" groups=["stick"] instance=ExtResource("8_ujiem")]
