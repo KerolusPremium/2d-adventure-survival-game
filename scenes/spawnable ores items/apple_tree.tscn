@@ -90,6 +90,7 @@ visible = false
 shape = SubResource("CircleShape2D_f1l51")
 
 [node name="appleGrowth" type="Timer" parent="."]
+wait_time = 60.0
 
 [node name="treeGrowth" type="Timer" parent="."]
 wait_time = 180.0

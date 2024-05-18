@@ -17,8 +17,10 @@ var isAttack := false
 
 func  _ready():
 	hideText()
-	self.position.x = loadPos().x
-	self.position.y = loadPos().y
+	#self.position.x = loadPos().x
+	#self.position.y = loadPos().y
+	self.position.x = 0
+	self.position.y = 0
 
 func _physics_process(delta):
 	if !isAttack:
